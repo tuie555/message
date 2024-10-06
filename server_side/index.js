@@ -4,22 +4,28 @@ const uuid = require("uuid");
 const pool = require('./db');
 const cors = require('cors');
 const express = require('express');
+const { join } = require('node:path');
+const { Server } = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server, {
-  cors: {
-    origin: "*",
-  }
-});
+const io = new Server(server);
 
 app.use(cors());
 app.use(express.json());
+
+io.on('connection', (socket) => {
+  console.log('a user connected');
+});
 
 const activeUsers = new Map();
 app.get('/a', async (req, res) => {
   res.send('hello');
 })
+
+app.get('/', (req, res) => {
+  res.sendFile(join(__dirname, 'index.html'));
+});
 
 app.get('/api/messages/:userid', async (req, res) => {
   const userId = req.params.userId;
