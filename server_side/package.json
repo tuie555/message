@@ -1,7 +1,22 @@
 {
-  "name": "socket-chat-example",
+  "name": "CMU-SHS",
   "version": "0.0.1",
-  "description": "my first socket.io app",
+  "main": "index.js",
+  "description": "CMU Secondhand Shopping Message page",
   "type": "commonjs",
-  "dependencies": {}
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "firebase": "^10.13.1",
+    "firebase-admin": "^12.5.0",
+    "http": "^0.0.1-security",
+    "node-waf": "^10.1.1",
+    "pg": "^8.13.0",
+    "socket.io": "^4.7.5",
+    "uuid": "^10.0.0",
+    "CMU-SHS": "file:"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
 }
